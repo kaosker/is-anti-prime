@@ -3,7 +3,7 @@
 // check if any number has the number of divisor greater than or equal
 // the divisor of N
 
-let divisorCount = function(num) {
+let divisorCount = function(num) { // counts divisors of the input
     let countDivisor = 0;
 
     for (let i = 1; i <= num; i++) {
@@ -15,18 +15,18 @@ let divisorCount = function(num) {
 };
 
 
-
+//see if any numbers below num can be divided more than num
 let isAntiPrime = function(num) {
-    let numDivisorCount = divisorCount(num);
-    let iDivisorCount = 0;
+    let numDivisorCount = divisorCount(num); // the num divisor count
+    let iDivisorCount = 0;                   // the divisor count of "test" integers below num
 
     for (let i = 1; i < num; i++) {
-        iDivisorCount += divisorCount(i);
-        if (numDivisorCount > iDivisorCount) {
-            iDivisorCount = 0;
-        } else {return false}
+        iDivisorCount += divisorCount(i);  // add count of "test interger" interger to count
+        if (numDivisorCount > iDivisorCount) { // if num still has highest divisor
+            iDivisorCount = 0; // let the count reset and try next "test integer"
+        } else {return false} // if "test integer" is acutally higher, end the function with false
     }
-    return true;
+    return true; // none of the test interger has more divisor than num, and there for "true" // num is the most devided above all numbers below
 };
 
 
